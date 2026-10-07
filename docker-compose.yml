@@ -1,4 +1,16 @@
 services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -12,3 +24,6 @@ services:
       DJANGO_SETTINGS_MODULE: config.settings.local
     depends_on:
       - db
+
+volumes:
+  postgres_data:
