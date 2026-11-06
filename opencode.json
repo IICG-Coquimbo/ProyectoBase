@@ -1,0 +1,9 @@
+{
+  "instructions": [
+    "docs/modelo_datos.md",
+    "docs/reglas_base_datos.md",
+    "docs/reglas_frontend.md",
+    "docs/reglas_vistas_templates.md",
+    "docs/reglas_usuarios.md"
+  ]
+}

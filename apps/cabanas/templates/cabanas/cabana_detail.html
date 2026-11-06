@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Detalle de Cabana: {{ cabana.nombre }}</h2>
+<p><strong>Nombre:</strong> {{ cabana.nombre }}</p>
+<p><strong>Capacidad:</strong> {{ cabana.capacidad }}</p>
+<p><strong>Precio por noche:</strong> {{ cabana.precio_noche }}</p>
+<p><strong>Disponible:</strong> {% if cabana.disponible %}Sí{% else %}No{% endif %}</p>
+<p><strong>Foto:</strong> {{ cabana.foto | default:"Sin foto" }}</p>
+<a href="{% url 'cabanas:cabana_list' %}">Volver a lista</a>
+{% endblock %}

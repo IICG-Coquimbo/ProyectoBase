@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Eliminar Cliente</h2>
+<p>¿Está seguro de desear eliminar el cliente <strong>{{ objeto.rut }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'clientes:cliente_list' %}">No, volver</a>
+</form>
+{% endblock %}

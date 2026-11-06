@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ProyectoBase{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+    <nav class="mb-4">
+        <a href="{% url 'admin:index' %}" class="btn btn-primary">Ir a Admin</a>
+        <a href="{% url 'clientes:cliente_list' %}" class="btn btn-link">Clientes</a>
+        <a href="{% url 'cabanas:cabana_list' %}" class="btn btn-link">Cabañas</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

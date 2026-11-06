@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home - ProyectoBase{% endblock %}
+{% block content %}
+<div class="jumbotron text-center p-5">
+    <h1 class="display-4">Bienvenido a ProyectoBase</h1>
+    <p class="lead">Sistema de gestión de cabañas y clientes</p>
+    <hr class="my-4">
+    <a href="{% url 'admin:index' %}" class="btn btn-primary btn-lg">Ir a Administración</a>
+    <a href="{% url 'clientes:cliente_list' %}" class="btn btn-link btn-lg">Ver Clientes</a>
+    <a href="{% url 'cabanas:cabana_list' %}" class="btn btn-link btn-lg">Ver Cabañas</a>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Lista de Categorías</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.nombre }}</td>
+            <td>{{ categoria.descripcion }}</td>
+            <td>
+                <a href="{% url 'clientes:categoria_detail' categoria.pk %}">Ver</a> |
+                <a href="{% url 'clientes:categoria_update' categoria.pk %}">Editar</a> |
+                <a href="{% url 'clientes:categoria_delete' categoria.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No hay categorías registradas.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'clientes:categoria_create' %}">Nueva Categoría</a>
+{% endblock %}

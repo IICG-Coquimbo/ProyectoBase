@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Lista de Cabañas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Capacidad</th>
+            <th>Precio Noche</th>
+            <th>Disponible</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cabana in cabanas %}
+        <tr>
+            <td>{{ cabana.nombre }}</td>
+            <td>{{ cabana.capacidad }}</td>
+            <td>{{ cabana.precio_noche }}</td>
+            <td>{% if cabana.disponible %}Sí{% else %}No{% endif %}</td>
+            <td><img src="{{ cabana.foto.url }}" width="50" height="50" alt="{{ cabana.nombre }}" /></td>
+            <td>
+                <a href="{% url 'cabanas:cabana_detail' cabana.pk %}">Ver</a> |
+                <a href="{% url 'cabanas:cabana_update' cabana.pk %}">Editar</a> |
+                <a href="{% url 'cabanas:cabana_delete' cabana.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">No hay cabañas registradas.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'cabanas:cabana_create' %}">Nueva Cabana</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Eliminar Categoría</h2>
+<p>¿Está seguro de desear eliminar la categoría <strong>{{ object.nombre }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'clientes:categoria_list' %}">No, volver</a>
+</form>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Detalle de Categoría: {{ categoria.nombre }}</h2>
+<p><strong>Nombre:</strong> {{ categoria.nombre }}</p>
+<p><strong>Descripción:</strong> {{ categoria.descripcion }}</p>
+<a href="{% url 'clientes:categoria_list' %}">Volver a lista</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Detalle de Cliente: {{ cliente.rut }}</h2>
+<p><strong>RUT:</strong> {{ cliente.rut }}</p>
+<p><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+<p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+<p><strong>Categoría:</strong> {% if cliente.categoria %}{{ cliente.categoria.nombre }}{% else %}Ninguna{% endif %}</p>
+<p><strong>__str__:</strong> {{ cliente }}</p>
+<a href="{% url 'clientes:cliente_list' %}">Volver a lista</a>
+{% endblock %}

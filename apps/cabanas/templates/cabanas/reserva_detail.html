@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h2>Detalle de Reserva: {{ reserva.pk }}</h2>
+<p><strong>Cabana:</strong> {{ reserva.cabana.nombre }}</p>
+<p><strong>Cliente:</strong> {{ reserva.cliente.rut }} - {{ reserva.cliente.nombre }}</p>
+<p><strong>Fecha Entrada:</strong> {{ reserva.fecha_entrada }}</p>
+<p><strong>Fecha Salida:</strong> {{ reserva.fecha_salida }}</p>
+<a href="{% url 'cabanas:reserva_list' %}">Volver a lista</a>
+{% endblock %}

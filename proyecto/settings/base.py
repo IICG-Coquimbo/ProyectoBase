@@ -34,7 +34,41 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #aplicaciones locales
+    'apps.cabanas',
+    'apps.clientes',
+    'jazzmin',
 ]
+
+JAZZMIN_SETTINGS = {
+    "site_title": "ProyectoBase Admin",
+    "site_header": "ProyectoBase",
+    "site_brand": "ProyectoBase",
+    "welcome_sign": "Bienvenido a la gestión del proyecto",
+    "copyright": "ProyectoBase 2026",
+    "user_avatar": None,
+    "topmenu_links": [
+        {"name": "Inicio", "url": "admin:index", "new_window": False},
+        {"model": "auth.User"},
+        {"model": "auth.Group"},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.group": "fas fa-users",
+        "apps.cabanas.Cabana": "fas fa-hotel",
+        "apps.cabanas.Reserva": "fas fa-calendar-alt",
+        "apps.cliente.Cliente": "fas fa-user-tie",
+        "apps.cliente.Categoria": "fas fa-folder",
+    },
+    "default_icon_parents": "fas fa-folder",
+    "default_icon_children": "fas fa-file",
+    "related_modal_active": False,
+    "theme": "default",
+    "changeform_format": "horizontal_tabs",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,7 +85,7 @@ ROOT_URLCONF = 'proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR / "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
